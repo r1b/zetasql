@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-# Placeholder: load py_proto_library
+load("@com_github_grpc_grpc//bazel:python_rules.bzl", "py_proto_library")
 
 # Package for non-public protos.
 package(default_visibility = ["//zetasql/base:zetasql_implementation"])
@@ -40,6 +40,11 @@ java_proto_library(
     deps = [":options_proto"],
 )
 
+py_proto_library(
+    name = "options_py_proto",
+    deps = [":options_proto"],
+)
+
 proto_library(
     name = "simple_catalog_proto",
     srcs = ["simple_catalog.proto"],
@@ -61,6 +66,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "simple_catalog_java_proto",
+    deps = [":simple_catalog_proto"],
+)
+
+py_proto_library(
+    name = "simple_catalog_py_proto",
     deps = [":simple_catalog_proto"],
 )
 
@@ -92,6 +102,11 @@ java_proto_library(
     deps = [":function_proto"],
 )
 
+py_proto_library(
+    name = "function_py_proto",
+    deps = [":function_proto"],
+)
+
 proto_library(
     name = "internal_error_location_proto",
     srcs = ["internal_error_location.proto"],
@@ -100,6 +115,11 @@ proto_library(
 
 cc_proto_library(
     name = "internal_error_location_cc_proto",
+    deps = [":internal_error_location_proto"],
+)
+
+py_proto_library(
+    name = "internal_error_location_py_proto",
     deps = [":internal_error_location_proto"],
 )
 
@@ -115,6 +135,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "anon_output_with_report_java_proto",
+    deps = [":anon_output_with_report_proto"],
+)
+
+py_proto_library(
+    name = "anon_output_with_report_py_proto",
     deps = [":anon_output_with_report_proto"],
 )
 
@@ -136,6 +161,11 @@ java_proto_library(
     deps = [":placeholder_descriptor_proto"],
 )
 
+py_proto_library(
+    name = "placeholder_descriptor_py_proto",
+    deps = [":placeholder_descriptor_proto"],
+)
+
 proto_library(
     name = "script_exception_proto",
     srcs = ["script_exception.proto"],
@@ -143,5 +173,10 @@ proto_library(
 
 cc_proto_library(
     name = "script_exception_cc_proto",
+    deps = [":script_exception_proto"],
+)
+
+py_proto_library(
+    name = "script_exception_py_proto",
     deps = [":script_exception_proto"],
 )

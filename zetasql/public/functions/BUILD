@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+load("@com_github_grpc_grpc//bazel:python_rules.bzl", "py_proto_library")
+
 package(default_visibility = ["//visibility:public"])
 
 cc_library(
@@ -793,6 +795,11 @@ java_proto_library(
     deps = [":datetime_proto"],
 )
 
+py_proto_library(
+    name = "datetime_py_proto",
+    deps = [":datetime_proto"],
+)
+
 proto_library(
     name = "normalize_mode_proto",
     srcs = ["normalize_mode.proto"],
@@ -805,6 +812,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "normalize_mode_java_proto",
+    deps = [":normalize_mode_proto"],
+)
+
+py_proto_library(
+    name = "normalize_mode_py_proto",
     deps = [":normalize_mode_proto"],
 )
 
@@ -826,6 +838,11 @@ java_proto_library(
     deps = [":rounding_mode_proto"],
 )
 
+py_proto_library(
+    name = "rounding_mode_py_proto",
+    deps = [":rounding_mode_proto"],
+)
+
 proto_library(
     name = "array_find_mode_proto",
     srcs = ["array_find_mode.proto"],
@@ -834,6 +851,11 @@ proto_library(
 
 java_proto_library(
     name = "array_find_mode_java_proto",
+    deps = [":array_find_mode_proto"],
+)
+
+py_proto_library(
+    name = "array_find_mode_py_proto",
     deps = [":array_find_mode_proto"],
 )
 
@@ -858,6 +880,11 @@ java_proto_library(
     deps = [":unsupported_fields_proto"],
 )
 
+py_proto_library(
+    name = "unsupported_fields_py_proto",
+    deps = [":unsupported_fields_proto"],
+)
+
 proto_library(
     name = "differential_privacy_proto",
     srcs = ["differential_privacy.proto"],
@@ -869,6 +896,11 @@ proto_library(
 
 java_proto_library(
     name = "differential_privacy_java_proto",
+    deps = [":differential_privacy_proto"],
+)
+
+py_proto_library(
+    name = "differential_privacy_py_proto",
     deps = [":differential_privacy_proto"],
 )
 
@@ -893,6 +925,11 @@ java_proto_library(
     deps = [":array_zip_mode_proto"],
 )
 
+py_proto_library(
+    name = "array_zip_mode_py_proto",
+    deps = [":array_zip_mode_proto"],
+)
+
 proto_library(
     name = "range_sessionize_mode_proto",
     srcs = ["range_sessionize_mode.proto"],
@@ -901,6 +938,11 @@ proto_library(
 
 java_proto_library(
     name = "range_sessionize_mode_java_proto",
+    deps = [":range_sessionize_mode_proto"],
+)
+
+py_proto_library(
+    name = "range_sessionize_mode_py_proto",
     deps = [":range_sessionize_mode_proto"],
 )
 

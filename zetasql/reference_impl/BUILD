@@ -14,6 +14,7 @@
 # limitations under the License.
 #
 
+load("@com_github_grpc_grpc//bazel:python_rules.bzl", "py_proto_library")
 load(
     "//zetasql/compliance:builddefs.bzl",
     "zetasql_compliance_test",
@@ -890,5 +891,10 @@ proto_library(
 
 cc_proto_library(
     name = "evaluator_table_iterator_cc_proto",
+    deps = [":evaluator_table_iterator_proto"],
+)
+
+py_proto_library(
+    name = "evaluator_table_iterator_py_proto",
     deps = [":evaluator_table_iterator_proto"],
 )

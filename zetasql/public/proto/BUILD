@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Placeholder: load py_proto_library
+load("@com_github_grpc_grpc//bazel:python_rules.bzl", "py_proto_library")
 
 package(default_visibility = ["//zetasql/base:zetasql_implementation"])
 
@@ -41,6 +41,11 @@ java_proto_library(
     deps = ["logging_proto"],
 )
 
+py_proto_library(
+    name = "logging_py_proto",
+    deps = [":logging_proto"],
+)
+
 proto_library(
     name = "type_annotation_proto",
     srcs = [
@@ -58,6 +63,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "type_annotation_java_proto",
+    deps = [":type_annotation_proto"],
+)
+
+py_proto_library(
+    name = "type_annotation_py_proto",
     deps = [":type_annotation_proto"],
 )
 

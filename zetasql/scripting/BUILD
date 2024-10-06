@@ -15,6 +15,7 @@
 #
 
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+load("@com_github_grpc_grpc//bazel:python_rules.bzl", "py_proto_library")
 
 package(
     default_visibility = ["//zetasql/base:zetasql_implementation"],
@@ -250,6 +251,11 @@ cc_proto_library(
     deps = [":script_executor_state_proto"],
 )
 
+py_proto_library(
+    name = "script_executor_state_py_proto",
+    deps = [":script_executor_state_proto"],
+)
+
 proto_library(
     name = "procedure_extension_proto",
     srcs = ["procedure_extension.proto"],
@@ -257,6 +263,11 @@ proto_library(
 
 cc_proto_library(
     name = "procedure_extension_cc_proto",
+    deps = [":procedure_extension_proto"],
+)
+
+py_proto_library(
+    name = "procedure_extension_py_proto",
     deps = [":procedure_extension_proto"],
 )
 
@@ -277,5 +288,10 @@ cc_proto_library(
 
 java_proto_library(
     name = "variable_java_proto",
+    deps = [":variable_proto"],
+)
+
+py_proto_library(
+    name = "variable_py_proto",
     deps = [":variable_proto"],
 )

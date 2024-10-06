@@ -15,7 +15,7 @@
 #
 
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
-load("@com_google_protobuf//:protobuf.bzl", "py_proto_library")
+load("@com_github_grpc_grpc//bazel:python_rules.bzl", "py_proto_library")
 load("//bazel:bison.bzl", "genyacc")
 load("//bazel:flex.bzl", "genlex")
 load("//bazel:textmapper.bzl", "tm_syntax")
@@ -128,6 +128,11 @@ cc_proto_library(
     deps = [":parse_tree_proto"],
 )
 
+py_proto_library(
+    name = "parse_tree_py_proto",
+    deps = [":parse_tree_proto"],
+)
+
 py_library(
     name = "generator_utils",
     srcs = ["generator_utils.py"],
@@ -179,7 +184,12 @@ java_proto_library(
 
 py_proto_library(
     name = "ast_enums_py_pb2",
-    srcs = ["ast_enums.proto"],
+    deps = [":ast_enums_proto"],
+)
+
+py_proto_library(
+    name = "ast_py_proto",
+    deps = [":parse_tree_proto"],
 )
 
 cc_library(

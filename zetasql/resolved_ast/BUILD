@@ -14,7 +14,7 @@
 # limitations under the License.
 
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
-load("@com_google_protobuf//:protobuf.bzl", "py_proto_library")
+load("@com_github_grpc_grpc//bazel:python_rules.bzl", "py_proto_library")
 
 # Placeholder: load py_proto_library
 # Placeholder: load py_binary
@@ -101,6 +101,12 @@ cc_proto_library(
 
 java_proto_library(
     name = "resolved_node_kind_java_proto",
+    visibility = ["//visibility:public"],
+    deps = [":resolved_node_kind_proto"],
+)
+
+py_proto_library(
+    name = "resolved_node_kind_py_proto",
     visibility = ["//visibility:public"],
     deps = [":resolved_node_kind_proto"],
 )
@@ -557,7 +563,8 @@ java_proto_library(
 
 py_proto_library(
     name = "resolved_ast_enums_py_pb2",
-    srcs = ["resolved_ast_enums.proto"],
+    deps = [":resolved_ast_enums_proto"],
+    visibility = ["//visibility:public"],
 )
 
 proto_library(
@@ -587,6 +594,11 @@ java_proto_library(
     deps = [":resolved_ast_proto"],
 )
 
+py_proto_library(
+    name = "resolved_ast_py_proto",
+    deps = [":resolved_ast_proto"],
+)
+
 proto_library(
     name = "serialization_proto",
     srcs = ["serialization.proto"],
@@ -605,6 +617,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "serialization_java_proto",
+    deps = [":serialization_proto"],
+)
+
+py_proto_library(
+    name = "serialization_py_proto",
     deps = [":serialization_proto"],
 )
 

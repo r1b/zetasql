@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-# Placeholder: load py_proto_library
+load("@com_github_grpc_grpc//bazel:python_rules.bzl", "py_proto_library")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -828,6 +828,11 @@ java_proto_library(
     deps = [":builtin_function_proto"],
 )
 
+py_proto_library(
+    name = "builtin_function_py_proto",
+    deps = [":builtin_function_proto"],
+)
+
 proto_library(
     name = "deprecation_warning_proto",
     srcs = ["deprecation_warning.proto"],
@@ -844,6 +849,11 @@ java_proto_library(
     deps = [":deprecation_warning_proto"],
 )
 
+py_proto_library(
+    name = "deprecation_warning_py_proto",
+    deps = [":error_location_proto"],
+)
+
 proto_library(
     name = "function_proto",
     srcs = ["function.proto"],
@@ -856,6 +866,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "function_java_proto",
+    deps = [":function_proto"],
+)
+
+py_proto_library(
+    name = "function_py_proto",
     deps = [":function_proto"],
 )
 
@@ -874,6 +889,11 @@ java_proto_library(
     deps = [":parse_resume_location_proto"],
 )
 
+py_proto_library(
+    name = "parse_resume_location_py_proto",
+    deps = [":parse_resume_location_proto"],
+)
+
 proto_library(
     name = "options_proto",
     srcs = ["options.proto"],
@@ -887,6 +907,12 @@ cc_proto_library(
 
 java_proto_library(
     name = "options_java_proto",
+    deps = [":options_proto"],
+)
+
+
+py_proto_library(
+    name = "options_py_proto",
     deps = [":options_proto"],
 )
 
@@ -909,6 +935,11 @@ java_proto_library(
     deps = [":simple_table_proto"],
 )
 
+py_proto_library(
+    name = "simple_table_py_proto",
+    deps = [":simple_table_proto"],
+)
+
 proto_library(
     name = "simple_constant_proto",
     srcs = ["simple_constant.proto"],
@@ -928,6 +959,11 @@ java_proto_library(
     deps = [":simple_constant_proto"],
 )
 
+py_proto_library(
+    name = "simple_constant_py_proto",
+    deps = [":simple_constant_proto"],
+)
+
 proto_library(
     name = "simple_connection_proto",
     srcs = ["simple_connection.proto"],
@@ -940,6 +976,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "simple_connection_java_proto",
+    deps = [":simple_connection_proto"],
+)
+
+py_proto_library(
+    name = "simple_connection_py_proto",
     deps = [":simple_connection_proto"],
 )
 
@@ -959,6 +1000,11 @@ java_proto_library(
     deps = [":simple_model_proto"],
 )
 
+py_proto_library(
+    name = "simple_model_py_proto",
+    deps = [":simple_model_proto"],
+)
+
 proto_library(
     name = "parse_location_range_proto",
     srcs = ["parse_location_range.proto"],
@@ -971,6 +1017,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "parse_location_range_java_proto",
+    deps = [":parse_location_range_proto"],
+)
+
+py_proto_library(
+    name = "parse_location_range_py_proto",
     deps = [":parse_location_range_proto"],
 )
 
@@ -990,6 +1041,11 @@ java_proto_library(
     deps = [":type_proto"],
 )
 
+py_proto_library(
+    name = "type_py_proto",
+    deps = [":type_proto"],
+)
+
 proto_library(
     name = "type_annotation_proto",
     srcs = ["type_annotation.proto"],
@@ -1003,6 +1059,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "type_annotation_java_proto",
+    deps = [":type_annotation_proto"],
+)
+
+py_proto_library(
+    name = "type_annotation_py_proto",
     deps = [":type_annotation_proto"],
 )
 
@@ -1024,6 +1085,11 @@ java_proto_library(
     deps = [":value_proto"],
 )
 
+py_proto_library(
+    name = "value_py_proto",
+    deps = [":value_proto"],
+)
+
 proto_library(
     name = "type_parameters_proto",
     srcs = ["type_parameters.proto"],
@@ -1040,6 +1106,11 @@ java_proto_library(
     deps = [":type_parameters_proto"],
 )
 
+py_proto_library(
+    name = "type_parameters_py_proto",
+    deps = [":type_parameters_proto"],
+)
+
 proto_library(
     name = "collation_proto",
     srcs = ["collation.proto"],
@@ -1052,6 +1123,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "collation_java_proto",
+    deps = [":collation_proto"],
+)
+
+py_proto_library(
+    name = "collation_py_proto",
     deps = [":collation_proto"],
 )
 
@@ -1074,6 +1150,11 @@ java_proto_library(
     deps = [":type_modifiers_proto"],
 )
 
+py_proto_library(
+    name = "type_modifiers_py_proto",
+    deps = [":type_modifiers_proto"],
+)
+
 proto_library(
     name = "error_location_proto",
     srcs = ["error_location.proto"],
@@ -1091,6 +1172,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "formatter_options_java_proto",
+    deps = [":formatter_options_proto"],
+)
+
+py_proto_library(
+    name = "formatter_options_py_proto",
     deps = [":formatter_options_proto"],
 )
 
@@ -2320,6 +2406,11 @@ java_proto_library(
     deps = [":annotation_proto"],
 )
 
+py_proto_library(
+    name = "annotation_py_proto",
+    deps = [":annotation_proto"],
+)
+
 proto_library(
     name = "simple_value_proto",
     srcs = ["simple_value.proto"],
@@ -2332,6 +2423,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "simple_value_java_proto",
+    deps = [":simple_value_proto"],
+)
+
+py_proto_library(
+    name = "simple_value_py_proto",
     deps = [":simple_value_proto"],
 )
 
@@ -2408,6 +2504,11 @@ cc_proto_library(
 
 java_proto_library(
     name = "simple_token_list_java_proto",
+    deps = [":simple_token_list_proto"],
+)
+
+py_proto_library(
+    name = "simple_token_list_py_proto",
     deps = [":simple_token_list_proto"],
 )
 
